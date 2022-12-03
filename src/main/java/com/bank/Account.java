@@ -1,47 +1,38 @@
 package com.bank;
 
 public class Account {
-    private static double balance = 0;
-    private static int rate = 0;
-    private static int period = 0;
+    protected double balance;
+    protected int rate;
+    protected int period;
 
-
-    public static void setBalance(double balance)
-    {
-        double newBalance = balance;
-    }
-    public static void setRate(int rate)
-    {
-        int newRate = rate;
-    }
-    public static void setPeriod(int period)
-    {
-        int newPeriod = period;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
-    public double getBalance()
-    {
-        return balance;
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
-    public int getRate()
-    {
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public double getBalance() {return balance;}
+
+    public int getRate() {
         return rate;
     }
-    public static int getPeriod()
-    {
+
+    public int getPeriod() {
         return period;
     }
 
-    public static void compute()
-    {
-        int period = getPeriod();
-        for(int i = 0; i<= period; i++)
-        {
-          int newBalance = (int) (balance * rate);
-          setBalance(newBalance);
-
-
+    public void compute(){
+        while(period != 0){
+            double interest = rate*.01;
+            double interestGained = interest*balance;
+            balance = interestGained + balance;
+            period --;
         }
 
     }

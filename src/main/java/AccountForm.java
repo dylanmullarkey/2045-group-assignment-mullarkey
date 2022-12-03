@@ -53,9 +53,9 @@ public class AccountForm {
                 String type = cmbAccountType.getSelectedItem().toString();
                 Account account = Banker.createAccount(type);
 
-                Account.setBalance(balance);
-                Account.setRate(rate);
-                Account.setPeriod(period);
+                account.setBalance(balance);
+                account.setRate(rate);
+                account.setPeriod(period);
 
 
                 allAccounts.add(account);
@@ -76,7 +76,7 @@ public class AccountForm {
         cmbAccountType.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if( cmbAccountType.getSelectedItem().toString().equals(Banker.CERTIFICATEOF_DEPOSIT)){
+                if( cmbAccountType.getSelectedItem().toString().equals(Banker.CERTIFICATE_OF_DEPOSIT)){
                     txtTerm.setEnabled(true);
                 }
                 else {
@@ -90,7 +90,7 @@ public class AccountForm {
         DefaultComboBoxModel<String> accountTypesModel = new DefaultComboBoxModel<>();
         accountTypesModel.addElement(Banker.CHECKING);
         accountTypesModel.addElement(Banker.SAVINGS);
-        accountTypesModel.addElement(Banker.CERTIFICATEOF_DEPOSIT);
+        accountTypesModel.addElement(Banker.CERTIFICATE_OF_DEPOSIT);
         cmbAccountType.setModel(accountTypesModel);
     }
 
